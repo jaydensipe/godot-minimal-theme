@@ -67,11 +67,11 @@ func _init() -> void:
 	# than transparent ones, however this is currently only noticeable on the Close
 	# button of editor settings, and it probably shouldn't even exist
 	var button_sb : StyleBoxFlat = base_sb.duplicate()
-	button_sb.bg_color = _get_base_color(0.3, 0.8)
-	if draw_extra_borders:
-		_set_border(button_sb, extra_border_color_1, floorf(scale))
-	else:
-		_set_border(button_sb, _get_base_color(0.5, 0.7), 1, true)
+	button_sb.bg_color = _get_base_color(0.1, 0.8)
+	# if draw_extra_borders:
+	# 	_set_border(button_sb, extra_border_color_1, floorf(scale))
+	# else:
+	# 	_set_border(button_sb, _get_base_color(0.5, 0.7), 1, true)
 	_set_margin(button_sb, base_margin * 2, base_margin * 1.5, base_margin * 2, base_margin * 1.5)
 
 	var button_hover_sb : StyleBoxFlat = button_sb.duplicate()
@@ -134,13 +134,13 @@ func _init() -> void:
 	set_constant('v_line_secondary_width', 'AnimationTimelineEdit', int(ceilf(scale)))
 
 	var sb : StyleBoxFlat = base_sb.duplicate()
-	sb.bg_color = _get_base_color(0.55, 0.7)
+	# sb.bg_color = _get_base_color(0.55, 0.7)
 	if draw_extra_borders:
 		_set_border(sb, extra_border_color_1, floorf(scale))
 	set_stylebox('time_available', 'AnimationTimelineEdit', sb)
 
 	sb = base_sb.duplicate()
-	sb.bg_color = _get_base_color(0.2, 0.8)
+	sb.bg_color = _get_base_color(0.3, 0.8)
 	set_stylebox('time_unavailable', 'AnimationTimelineEdit', sb)
 
 	set_color('h_line_color', 'AnimationTrackEdit', Color.TRANSPARENT)
@@ -166,7 +166,7 @@ func _init() -> void:
 	set_constant('h_separation', 'AnimationTrackEditGroup', int(base_margin * 2 * scale))
 
 	sb = base_sb.duplicate()
-	sb.bg_color = _get_base_color(-0.6)
+	sb.bg_color = _get_base_color(-1.0)
 	_set_margin(sb, base_margin * 4, base_margin, 0, base_margin)
 	set_stylebox('header', 'AnimationTrackEditGroup', sb)
 
@@ -245,7 +245,7 @@ func _init() -> void:
 	set_color('property_color_z', 'Editor', Color('#6AABF6') if dark_theme else Color('#143862'))
 	set_color('warning_color', 'Editor', Color(0.95, 0.855, 0.57) if dark_theme else Color(0.82, 0.56, 0.1))
 
-	set_color('prop_subsection', 'Editor', Color.TRANSPARENT)
+	set_color('prop_subsection', 'Editor', _get_base_color(-0.3))
 	set_constant('top_bar_separation', 'Editor', int(base_margin * scale))
 	set_constant('window_border_margin', 'Editor', int(base_margin * scale))
 
@@ -297,7 +297,7 @@ func _init() -> void:
 	set_stylebox('bg', 'EditorProperty', base_empty_sb)
 	set_stylebox('bg_selected', 'EditorProperty', base_empty_sb)
 	sb = base_sb.duplicate()
-	sb.bg_color = _get_base_color(-0.8) # Same as LineEdit normal
+	sb.bg_color = _get_base_color(-1.0) # Same as LineEdit normal
 	sb.set_content_margin_all(base_margin * scale)
 	if draw_extra_borders:
 		_set_border(sb, extra_border_color_2, floorf(scale))
@@ -306,7 +306,7 @@ func _init() -> void:
 	# EditorSpinSlider
 
 	sb = base_sb.duplicate()
-	sb.bg_color = _get_base_color(-0.8)
+	sb.bg_color = _get_base_color(-1.5)
 	sb.set_content_margin_all(base_margin * scale)
 	set_stylebox('label_bg', 'EditorSpinSlider', sb)
 
@@ -693,11 +693,12 @@ func _init() -> void:
 	set_constant('inner_item_margin_right', 'Tree', int(base_margin * scale))
 	set_constant('parent_hl_line_width', 'Tree', int(ceilf(scale)))
 	set_constant('relationship_line_width', 'Tree', 0)
-	set_constant('v_separation', 'Tree', int(base_margin * 0.25 * scale))
+	# set_constant('v_separation', 'Tree', int(base_margin * 0.25 * scale))
 
 	sb = base_sb.duplicate()
 	sb.set_content_margin_all(base_margin * 2 * scale)
 	set_stylebox('panel', 'Tree', sb)
+	sb.bg_color = _get_base_color(-0.5)
 
 	# Leaving focus empty for trees and scroll containers because there's no way to
 	# make focus indication look not janky when only a part of a dock is highlighted
