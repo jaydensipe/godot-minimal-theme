@@ -67,7 +67,7 @@ func _init() -> void:
 	# than transparent ones, however this is currently only noticeable on the Close
 	# button of editor settings, and it probably shouldn't even exist
 	var button_sb : StyleBoxFlat = base_sb.duplicate()
-	button_sb.bg_color = _get_base_color(0.1, 0.8)
+	button_sb.bg_color = _get_base_color(-0.7, 0.8)
 	if draw_extra_borders:
 		_set_border(button_sb, extra_border_color_1, floorf(scale))
 	else:
@@ -698,7 +698,7 @@ func _init() -> void:
 	sb = base_sb.duplicate()
 	sb.set_content_margin_all(base_margin * 2 * scale)
 	set_stylebox('panel', 'Tree', sb)
-	sb.bg_color = _get_base_color(-0.5)
+	sb.bg_color = _get_base_color(-0.6)
 
 	# Leaving focus empty for trees and scroll containers because there's no way to
 	# make focus indication look not janky when only a part of a dock is highlighted
