@@ -6,7 +6,7 @@
 ## Installation
 
 1. Download the `minimal_theme.tres` file of the [latest version](https://github.com/passivestar/godot-minimal-theme/releases/latest).
-2. Open `Editor Settings -> Interface -> Theme` and choose the downloaded file in the `Custom Theme` field.
+2. Open `Editor Settings -> Interface -> Theme` and choose the downloaded file in the `Custom Theme` field. You'll need to have `Advanced Settings` enabled to see that field.
 3. Click `Save & Restart`.
 
 ## Recommended settings
@@ -19,9 +19,9 @@ Here are my personal recommendations:
 
 - Base Color: `#252525` or `#22262B`
 - Accent Color: `#569eff`
-- Contrast: `0.3`
+- Contrast: `0.2-0.3`
 - Icon Saturation: `2`
-- Corner Radius: `5`
+- Corner Radius: `4-5`
 
 `Editor Settings -> Interface -> Editor`:
 
