@@ -72,26 +72,14 @@ func _init() -> void:
 	# than transparent ones, however this is currently only noticeable on the Close
 	# button of editor settings, and it probably shouldn't even exist
 	var button_sb : StyleBoxFlat = base_sb.duplicate()
-	button_sb.bg_color = _get_base_color(0.3, 0.8)
-	if draw_extra_borders:
-		_set_border(button_sb, extra_border_color_1, floorf(scale))
-	else:
-		_set_border(button_sb, _get_base_color(0.5, 0.7), 1, true)
+	button_sb.bg_color = Color.TRANSPARENT
 	_set_margin(button_sb, base_margin * 2, base_margin * 1.5, base_margin * 2, base_margin * 1.5)
 
 	var button_hover_sb : StyleBoxFlat = button_sb.duplicate()
-	button_hover_sb.bg_color = _get_base_color(0.5, 0.7)
-	if draw_extra_borders:
-		_set_border(button_hover_sb, extra_border_color_1, floorf(scale))
-	else:
-		_set_border(button_hover_sb, _get_base_color(0.7, 0.7), 1, true)
+	button_hover_sb.bg_color = _get_base_color(0.2, 0.7)
 
 	var button_pressed_sb : StyleBoxFlat = button_sb.duplicate()
 	button_pressed_sb.bg_color = _get_base_color(0.7, 0.7)
-	if draw_extra_borders:
-		_set_border(button_pressed_sb, extra_border_color_1, floorf(scale))
-	else:
-		_set_border(button_pressed_sb, _get_base_color(0.9, 0.7), 1, true)
 
 	var button_disabled_sb : StyleBoxFlat = button_sb.duplicate()
 	button_disabled_sb.set_border_width_all(0)
@@ -255,9 +243,9 @@ func _init() -> void:
 	set_color('gl_compatibility_color', 'Editor', Color(0.447059, 0.698039, 0.890196))
 	set_color('mobile_color', 'Editor', Color(0.862745, 0.482353, 0.584314))
 	set_color('property_color_w', 'Editor', mono_color_icon_and_font * Color(1, 1, 1, 0.8))
-	set_color('property_color_x', 'Editor', Color('#E16277') if dark_theme_icon_and_font else Color('#670A18'))
-	set_color('property_color_y', 'Editor', Color('#C3EF65') if dark_theme_icon_and_font else Color('#455E10'))
-	set_color('property_color_z', 'Editor', Color('#6AABF6') if dark_theme_icon_and_font else Color('#143862'))
+	set_color('property_color_x', 'Editor', Color('#FF4E6A') if dark_theme_icon_and_font else Color('#670A18'))
+	set_color('property_color_y', 'Editor', Color('#A8FF00') if dark_theme_icon_and_font else Color('#455E10'))
+	set_color('property_color_z', 'Editor', Color('#00FFD7') if dark_theme_icon_and_font else Color('#143862'))
 	set_color('warning_color', 'Editor', Color('#D4C79F') if dark_theme_icon_and_font else Color('#D47D03'))
 
 	set_color('prop_subsection', 'Editor', Color.TRANSPARENT)
@@ -289,7 +277,6 @@ func _init() -> void:
 	# EditorInspector
 
 	empty_sb = base_empty_sb.duplicate()
-	empty_sb.set_content_margin_all(base_margin * 2 * scale)
 	set_stylebox('panel', 'EditorInspector', empty_sb)
 	set_constant('v_separation', 'EditorInspector', int(base_margin * 0.85 * scale))
 	sb = base_sb.duplicate()
@@ -423,8 +410,8 @@ func _init() -> void:
 
 	# Box Containers
 
-	set_constant('separation', 'HBoxContainer', int(2 * scale))
-	set_constant('separation', 'VBoxContainer', int(2 * scale))
+	set_constant('separation', 'HBoxContainer', int(4 * scale))
+	set_constant('separation', 'VBoxContainer', int(4 * scale))
 
 	# Split Containers
 
@@ -743,14 +730,13 @@ func _init() -> void:
 	set_constant('inner_item_margin_right', 'Tree', int(base_margin * scale))
 	set_constant('parent_hl_line_width', 'Tree', int(ceilf(scale)))
 	set_constant('relationship_line_width', 'Tree', 0)
-	set_constant('v_separation', 'Tree', int(base_margin * 0.25 * scale))
+	set_constant('v_separation', 'Tree', int(base_margin * 0.50 * scale))
 
 	# Using empty stylebox for trees to avoid drawing unnecessary borders in docks.
 	# Note that using opaque color that is the same as dock background
 	# doesn't work because EditorPropertyResource is using Tree panel
 	# stylebox to draw its background as well, making it look broken
 	empty_sb = base_empty_sb.duplicate()
-	empty_sb.set_content_margin_all(base_margin * 2 * scale)
 	set_stylebox('panel', 'Tree', empty_sb)
 
 	# Leaving focus empty for trees and scroll containers because there's no way to
